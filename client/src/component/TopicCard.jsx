@@ -5,8 +5,8 @@ export function TopicCard(props) {
 
     return (
         <div className="flex justify-center items-center flex-row p-5 space-y-3">
-            <div className="flex border-2 border-black w-full justify-center gap-10">
-            <img src={photo} alt="" className="flex w-auto h-72 rounded-[43px] p-auto justify-center border-2 border-violet-500"/> 
+            <div className="flex w-full justify-center gap-10">
+            <img src={photos[0]} alt="" className="flex w-auto h-72 rounded-[43px] p-auto justify-center "/> 
                 <ul className="h-72 w-82 pl-3 flex flex-col">
                     <li><h1 className="font-medium py-1 text-2xl">{topicName}</h1></li>
                     <li><p className="py-1 font-serif">{DescriptionNotOverLength100}</p></li>
