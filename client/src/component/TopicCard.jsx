@@ -1,29 +1,28 @@
 export function TopicCard(props) {
-    if (props.description || props.description.length > 100) {
-      var DescriptionNotOverLength100 = props.description.substring(0, 100);
-    } else {
-      var DescriptionNotOverLength100 = '';
-    }
-  
+    const { description, topicName, photo, url, tags, photos } = props;
+
+    const DescriptionNotOverLength100 = description.length > 100 ? description.substring(0, 100) + '...' : description;
+
     return (
-        <div className="flex justify-center items-center flex-row  w-auto h-auto p-5">
-        <img src={props.photo} alt="" className="border-2 border-red-500 w-24 h-24 " /> 
-        <ul>
-          <li><h1 className="font-medium">{props.topicName}</h1></li>
-          <li><p>{DescriptionNotOverLength100}</p></li>
-          <li><a href={props.url}>อ่านต่อ</a></li>   
-          <li> หมวด :
-            {props.tags.map((tag, eid) => ( 
-              <span key={eid} className="" > {tag} </span> 
-            ))}
-          </li>
-          {/* <li>
-            {props.photos.map((photo, eid) => (
-             <span img={eid}>{photo}</span>
-            ))}
-          </li> */  } 
-        </ul>
-      </div>
+        <div className="flex justify-center items-center flex-row p-5 space-y-3">
+            <div className="flex border-2 border-black w-full justify-center gap-10">
+            <img src={photo} alt="" className="flex w-auto h-72 rounded-[43px] p-auto justify-center border-2 border-violet-500"/> 
+                <ul className="h-72 w-82 pl-3 flex flex-col">
+                    <li><h1 className="font-medium py-1 text-2xl">{topicName}</h1></li>
+                    <li><p className="py-1 font-serif">{DescriptionNotOverLength100}</p></li>
+                    <li className="py-1 text-blue-500"><a href={url} className="underline" target="_blank">อ่านต่อ</a></li>   
+                    <li className="py-1">หมวด:
+                        {tags.map((tag, eid) => (
+                            <span key={eid}> {tag}  {eid === tags.length - 2 ? "และ " : ""}</span>
+                        ))}
+                    </li>
+                    <div className="flex flex-row gap-10">
+                        {photos.slice(1).map((photo, eid) => (
+                            <img key={eid} src={photo} alt="" className="pt-3 w-28 h-32 rounded-3xl" />
+                        ))}
+                    </div>
+                </ul>
+            </div>
+        </div>
     );
-  }
-  
+}
