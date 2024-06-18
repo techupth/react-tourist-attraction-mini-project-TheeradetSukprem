@@ -5,15 +5,33 @@ export function TopicCard(props) {
 
     return (
         <div className="flex justify-center items-center flex-row p-5 space-y-3">
-            <div className="flex w-full justify-center gap-10">
-            <img src={photos[0]} alt="" className="flex w-auto h-72 rounded-[43px] p-auto justify-center "/> 
-                <ul className="h-72 w-82 pl-3 flex flex-col">
-                    <li><h1 className="font-medium py-1 text-2xl">{topicName}</h1></li>
+            <div className="flex w-full justify-center gap-10 border-2 border-red-400">
+                <div className="w-72 h-72 flex justify-center items-center">
+                    <img 
+                        src={photos[0]} 
+                        alt="" 
+                        className="w-full h-full rounded-[43px] object-cover border-2 border-red-500" 
+                    />
+                </div>
+                <ul className="h-72 w-82 pl-3 flex flex-col justify-center">
+                    <li>
+                        <h1 className="font-medium py-1 text-2xl">
+                            <a href={url} className="underline" target="_blank">
+                                {topicName}
+                            </a>
+                        </h1>
+                    </li>
                     <li><p className="py-1 font-serif">{DescriptionNotOverLength100}</p></li>
-                    <li className="py-1 text-blue-500"><a href={url} className="underline" target="_blank">อ่านต่อ</a></li>   
-                    <li className="py-1">หมวด:
+                    <li className="py-1 text-blue-500">
+                        <a href={url} className="underline" target="_blank">อ่านต่อ</a>
+                    </li>
+                    <li className="py-1">
+                        หมวด: 
                         {tags.map((tag, eid) => (
-                            <span key={eid}> {tag}  {eid === tags.length - 2 ? "และ " : ""}</span>
+                            <span key={eid}>
+                                {tag}
+                                {eid < tags.length - 1 ? (eid === tags.length - 2 ? ' และ ' : ', ') : ''}
+                            </span>
                         ))}
                     </li>
                     <div className="flex flex-row gap-10">
