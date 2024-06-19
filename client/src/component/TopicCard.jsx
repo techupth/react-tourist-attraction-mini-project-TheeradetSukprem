@@ -5,12 +5,12 @@ export function TopicCard(props) {
 
     return (
         <div className="flex justify-center items-center flex-row p-5 space-y-3">
-            <div className="flex w-full justify-center gap-10 border-2 border-red-400">
+            <div className="flex w-full justify-start mx-[24rem] gap-10">
                 <div className="w-72 h-72 flex justify-center items-center">
                     <img 
                         src={photos[0]} 
                         alt="" 
-                        className="w-full h-full rounded-[43px] object-cover border-2 border-red-500" 
+                        className="w-full h-full rounded-[43px] object-cover " 
                     />
                 </div>
                 <ul className="h-72 w-82 pl-3 flex flex-col justify-center">
