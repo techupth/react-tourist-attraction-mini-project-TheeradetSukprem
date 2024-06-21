@@ -7,8 +7,8 @@ function App() {
   return (
   <div className="App">
     <Header />
-    {/* <SearchTopic />  สร้างแยกแล้วไม่สามารถใช้งานได้เลยไม่นำมาใช้  */}
     <TopicHighlight />
+    {/* <SearchTopic />  สร้างแยกแล้วไม่สามารถใช้งานได้เลยไม่นำมาใช้  */}
   </div>
   )
 };
